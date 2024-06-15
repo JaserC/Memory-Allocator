@@ -1,0 +1,19 @@
+*****************************
+* Lab 5 Synthesis Questions *
+*****************************
+Name(s): Jaser Chowdhury 
+NetID(s): jaserc
+
+
+-----------------------------------------------------------
+1) Alignment: 16 bytes
+   Reasoning: I was able to determine the alignment to 16 by finding the base block size by starting at Malloc(1) and subtracting the address of that pointer from the address of the class_grades malloc call. This gave me a difference of 32 which I determined to be the block size. The difference stayed at 32 till changing the argument to 25 because the header is 8 bytes so that means that this minimum block has 24 bytes storing the size. After I swapped in malloc's argument with 25 calling Malloc(25) I subtract the address from the address of class_grades and then get a difference of 48 meaning that the next block size is 48. So I do 48 - 32 to get 16 which is what I determined the alignment to be. It also works because both of the block sizes are multiples of 16.
+
+
+
+-----------------------------------------------------------
+2) Boundary Tag Size: 8 bytes 
+   Reasoning: The minimum block size didn't reach the next block size till passing in 25 as the argument to malloc. This tells us that there are 24 bytes storing the size as stated above. This is the maximum payload we can request so now we can do 32 - 24 which gives us 8. This is what's leftover so this then must be the size of the boundary tag.
+
+
+-----------------------------------------------------------
